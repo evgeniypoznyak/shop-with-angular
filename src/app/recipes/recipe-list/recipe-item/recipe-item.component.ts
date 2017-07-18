@@ -17,6 +17,7 @@ export class RecipeItemComponent implements OnInit {
   }
 
   onSelected() {
+    // КОНТЕКСТ ИМЕННО ЭТОГО ОБЪЕКТА ЧЕРЕЗ THIS ПОЭТОМУ ТУТ ПОНЯТНО ЧТО ЗА ЭЛЕМЕНТ
     this.recipeSelected.emit();
   }
 
