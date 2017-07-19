@@ -14,11 +14,13 @@ export class ShoppingListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ingredients = this.slService.getIngridients();
-  }
-
-  addIngridient(ingridient: Ingredient){
-    this.ingredients.push(ingridient);
+    this.ingredients = this.slService.getIngredients();
+    // and here on initialization we assign action to the event, when event emit - we assign new array to current array
+    this.slService.ingredientsChanged.subscribe(
+      (ingredients: Ingredient[]) => {
+        this.ingredients = ingredients;
+      }
+    );
   }
 
 }

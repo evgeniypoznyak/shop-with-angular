@@ -21,7 +21,7 @@ export class RecipeItemComponent implements OnInit {
   }
 
   onSelected() {
-   // КОНТЕКСТ ИМЕННО ЭТОГО ОБЪЕКТА ЧЕРЕЗ THIS ПОЭТОМУ ТУТ ПОНЯТНО ЧТО ЗА ЭЛЕМЕНТ
+   // "this" - in the loop is one particular object and "onclick" we got this single object and binded property [recipe]
     this.recipeService.recipeSelected.emit(this.recipe);
   }
 
