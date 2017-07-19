@@ -13,9 +13,9 @@ export class ShoppingListService{
     return this.ingredients.slice();
   }
 
-  addIngredient(ingridient: Ingredient){
+  addIngredient(ingredient: Ingredient){
     // pushing a new element to the a copy
-    this.ingredients.push(ingridient);
+    this.ingredients.push(ingredient);
     // throw a copy of array in event and called this event
     this.ingredientsChanged.emit(this.ingredients.slice());
   }
