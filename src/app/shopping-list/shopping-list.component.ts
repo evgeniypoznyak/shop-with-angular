@@ -10,12 +10,12 @@ import { ShoppingListService } from './shopping-list.service';
 export class ShoppingListComponent implements OnInit {
   ingredients: Ingredient[];
 
-  constructor( private slService: ShoppingListService) {
+  constructor(private slService: ShoppingListService) {
   }
 
   ngOnInit() {
     this.ingredients = this.slService.getIngredients();
-    // and here on initialization we assign action to the event, when event emit - we assign new array to current array
+    // and here on initialization we listening event and we overwriting current array by new array
     this.slService.ingredientsChanged.subscribe(
       (ingredients: Ingredient[]) => {
         this.ingredients = ingredients;
