@@ -40,9 +40,14 @@ export class RecipeService {
   getRecipes() {
     return this.recipes.slice();
   }
+
 // transferring to shopping list service, to get access shopping list.
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
+  }
+
+  getRecipe(id: number) {
+    return this.recipes[id];
   }
 
 }
