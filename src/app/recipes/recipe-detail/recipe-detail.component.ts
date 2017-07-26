@@ -17,7 +17,7 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   onAddToShoppingList() {
-    // Function called in particular object contest, ind because of that we got object ingredients
+    // Function called in particular object contest, and because of that we got object ingredients
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
   }
 }
