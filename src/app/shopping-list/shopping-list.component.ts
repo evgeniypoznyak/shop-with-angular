@@ -26,6 +26,11 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     );
   }
 
+  // if click button, then run Subject Observable
+  onEditItem(index: number) {
+    this.slService.startEditing.next(index);
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
