@@ -17,8 +17,7 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 
-
-@NgModule( {
+@NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -39,6 +38,6 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]
-} )
+})
 export class AppModule {
 }
