@@ -18,7 +18,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   editMode = false;
   // get index for future use in edit method
   editedItemIndex: number;
-  // only for form assign values, and later pass them to onAddItem
+  // only for form assign values, and later pass them to onSubmit
   editedItem: Ingredient;
 
   constructor(private slService: ShoppingListService) {
@@ -42,7 +42,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     );
   }
 
-  onAddItem(form: NgForm) {
+  onSubmit(form: NgForm) {
     const value = form.value;
     const newIngredient = new Ingredient(value.name, value.amount);
     if (this.editMode) {
@@ -51,6 +51,14 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     } else {
       this.slService.addIngredient(newIngredient);
     }
+    // this.onClear();
+     this.editMode = false;
+     form.reset();
+  }
+
+  onClear() {
+    this.slForm.reset();
+    this.editMode = false;
   }
 
   ngOnDestroy() {
