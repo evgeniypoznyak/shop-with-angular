@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs/Subject';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable()
 export class RecipeService {
@@ -34,7 +35,7 @@ export class RecipeService {
       ])
   ];
 
-  constructor(private slService: ShoppingListService) {
+  constructor(private slService: ShoppingListService, private router: Router, private route: ActivatedRoute) {
 
   }
 
@@ -53,12 +54,19 @@ export class RecipeService {
 
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
-    this.recipesChanged.next(this.recipes.slice())
+    this.recipesChanged.next(this.recipes.slice());
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
   updateRecipe(index: number, newRecipe: Recipe) {
     this.recipes[index] = newRecipe;
-    this.recipesChanged.next(this.recipes.slice())
+    this.recipesChanged.next(this.recipes.slice());
+    this.router.navigate(['../'], {relativeTo: this.route});
+  }
+
+  deleteRecipe(index: number){
+    this.recipes.splice(index, 1);
+    this.recipesChanged.next(this.recipes.slice());
   }
 
 }
