@@ -19,6 +19,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import { SharedModule } from './shared/shared.module';
 
 
 
@@ -28,7 +29,6 @@ import { SigninComponent } from './auth/signin/signin.component';
     HeaderComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    DropDownDirective,
     SignupComponent,
     SigninComponent
   ],
@@ -39,6 +39,7 @@ import { SigninComponent } from './auth/signin/signin.component';
     AppRoutingModule,
     HttpModule,
     RecipesModule,
+    SharedModule
   ],
   providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
