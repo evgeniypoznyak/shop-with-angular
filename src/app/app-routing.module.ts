@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './core/home/home.component';
 
 // loadChildren - load lazily, #RecipesModule - point module
 const appRoutes: Routes = [
@@ -11,7 +11,8 @@ const appRoutes: Routes = [
   { path: 'shopping-list', component: ShoppingListComponent }
 
 ];
-
+// if previous forChild declared - this routes in RouterModule already,
+// no need to add all these  routing (child)modules
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]

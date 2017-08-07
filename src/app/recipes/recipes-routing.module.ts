@@ -17,14 +17,15 @@ const recipesRoutes: Routes = [
       { path: ':id', component: RecipeDetailComponent },
       { path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuard] }
     ]
-  },
+  }
 ];
 
 @NgModule({
   imports: [
     RouterModule.forChild(recipesRoutes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class RecipesRoutingModule {
 }
